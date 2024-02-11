@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Schriben Sie 'start', um das Auto zu starten:");
+            Console.WriteLine("Schriben Sie 'start', um das auto zu starten:");
             string userInput = Console.ReadLine();
 
             if (userInput.ToLower() == "start")

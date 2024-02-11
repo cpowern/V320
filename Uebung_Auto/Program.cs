@@ -14,7 +14,7 @@
             }
             else
             {
-                Console.WriteLine("Das Auto wird nicht gestartet");
+                Console.WriteLine("Falls Sie 'start' nicht eingeben, wird das Auto nicht gestartet");
             }
         }
     }

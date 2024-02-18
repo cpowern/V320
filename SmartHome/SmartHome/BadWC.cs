@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmartHome;
 
-public class BadWC
+public class BadWC: Zimmer
 {
     public double Feuchtigkeit { get; set; }
+
+    public BadWC() : base("badWC")
+    {
+
+    }
 }

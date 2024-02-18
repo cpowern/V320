@@ -10,23 +10,35 @@ public class Wohnung
 {
     private List<IZimmer> zimmerList = new List<IZimmer>();
     private Wettersensor wettersensor;
+    private Wetterdaten WohnungWetterdaten = new Wetterdaten();
     
-    public Wohnung()
+    public Wohnung(Wettersensor wettersensor)
     {
-        wettersensor = new Wettersensor();
+        this.wettersensor = new Wettersensor();
 
-        zimmerList.Add(new Heizungsventil(new BadWC()));
-        zimmerList.Add(new Jalousienstuerung(new Heizungsventil(new BadWC())));
-        zimmerList.Add(new Jalousienstuerung(new Heizungsventil()));
-        zimmerList.Add(new Jalousienstuerung(new Heizungsventil()));
-        zimmerList.Add(new Jalousienstuerung(new Markisensteuerung()));
+        this.zimmerList.Add(new Heizungsventil(new BadWC()));
+        this.zimmerList.Add(new Jalousiensteuerung(new Heizungsventil(new Wohnzimmer())));
+        this.zimmerList.Add(new Jalousiensteuerung(new Heizungsventil(new Schlafzimmer())));
+        this.zimmerList.Add(new Jalousiensteuerung(new Heizungsventil(new Kueche())));
+        this.zimmerList.Add(new Jalousiensteuerung(new Markisensteuerung(new Wintergarten())));
+
     }
+
     public void GeneriereWetterdaten()
     {
+        WohnungWetterdaten = wettersensor.GetWetterdaten();
 
+        Console.WriteLine();
+        Console.WriteLine("-----Verarbeite Wetterdaten-----");
+        Console.WriteLine();
+
+        foreach(var zimmer in zimmerList) 
+        {
+            zimmer.VerarbeiteWetterdaten(WohnungWetterdaten);
+        }
     }
 
-    public void SetPersonenImZimmer(string zimmername, bool personenImZimmer, string temperaturvorgabe)
+    public void SetPersonenImZimmer(string zimmername, bool personenImZimmer)
     {
         var zimmer = zimmerList.FirstOrDefault(x => x.Name == zimmername);
         if (zimmer != null)
@@ -35,7 +47,7 @@ public class Wohnung
         }
     }
 
-    public void SetTemperaturvorgabe(double temperatur, string zimmername, double temperaturvorgabe)
+    public void SetTemperaturvorgabe(string zimmername, double temperaturvorgabe)
     {
         var zimmer = zimmerList.FirstOrDefault(x => x.Name == zimmername);
         if (zimmer != null)

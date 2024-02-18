@@ -13,10 +13,15 @@ namespace SmartHome
         public bool PersonenImZimmer { get; set; }
         public double TemperaturVorgabe { get; set; }
 
-
-        public void VerarbeiteWetterdaten()
+        public Zimmer(string name)
         {
-            // Wettterdaten wetterdaten
+            this.Name = name;
+        }
+
+        public void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
+        {
+            Console.WriteLine($"Wetterdaten für {this.Name} wurden verarbeitet: Temperaturvorgabe: {this.TemperaturVorgabe}°C, Personen im Zimmer: {(this.PersonenImZimmer ? "anwesend" : "abwesend")}.");
+            Console.WriteLine();
         }
     }
 }

@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace SmartHome
 {
-    public class Schlafzimmer
+    public class Schlafzimmer: Zimmer
     {
         public DateTime WeckZeit { get; set; }
+
+        public Schlafzimmer() : base("schlafzimmer")
+        {
+
+        }
+
     }
 }

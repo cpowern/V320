@@ -1,15 +1,21 @@
 ﻿namespace SmartHome;
 
-internal class Program
+public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Project start!");
+        Wettersensor wettersensor = new Wettersensor();
+        Wohnung wohnung = new Wohnung(wettersensor);
 
-        Wohnung wohnungOne = new Wohnung();
-        wohnungOne = 0;
-        Schlafzimmer woSchlafzimmer = new Schlafzimmer(wohnungOne);
+        wohnung.SetTemperaturvorgabe("BadWC", 25);
+        wohnung.SetTemperaturvorgabe("Kueche", 24);
+        wohnung.SetTemperaturvorgabe("Schlafzimmer", 21);
+        wohnung.SetTemperaturvorgabe("Wohnzimmer", 22);
 
+        for (int i = 0; i < 60; i++)
+        {
+            wohnung.GeneriereWetterdaten();
+        }
 
     }
 }

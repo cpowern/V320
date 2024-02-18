@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace SmartHome
 {
-    public class Wintergarten: Zimmer
+    public class Wohnzimmer : Zimmer
     {
-        public double Sonneneinstrahlung {  get; set; }
+        RgbColor rgbColor { get; set; }
 
-        public Wintergarten() : base("Wintergarten")
+        public Wohnzimmer() : base("Wohnzimmer")
         {
 
         }
-
     }
 }

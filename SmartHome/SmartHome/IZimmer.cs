@@ -14,7 +14,7 @@ public interface IZimmer
 
     public void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
     {
-
+        //leer
     }
 
 }

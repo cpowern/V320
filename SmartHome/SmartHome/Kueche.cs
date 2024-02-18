@@ -8,5 +8,6 @@ namespace SmartHome
 {
     internal class Kueche
     {
+
     }
 }

@@ -8,5 +8,9 @@ namespace SmartHome;
 
 public class Wetterdaten
 {
+    public double Aussentemperatur { get; set; }
 
+    public bool Regen { get; set; }
+
+    public double Windgeschwindigkeit { get; set; }
 }

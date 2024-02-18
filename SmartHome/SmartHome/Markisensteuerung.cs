@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHome
+namespace SmartHome;
+
+public class Markisensteuerung : ZimmerDecorator
 {
-    internal class Markisensteuerung
+    private bool HeizungsventilOffen { get; set; }
+
+    public override void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
     {
+
     }
 }

@@ -12,8 +12,7 @@ public interface IZimmer
     public bool PersonenImZimmer { get; set; }
     public double TemperaturVorgabe { get; set; }
 
-
-    public void VerarbeiteWetterdaten()
+    public void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
     {
 
     }

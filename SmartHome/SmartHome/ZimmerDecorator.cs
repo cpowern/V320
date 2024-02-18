@@ -8,13 +8,13 @@ namespace SmartHome;
 
 public abstract class ZimmerDecorator : IZimmer
 {
+
+    protected IZimmer Zimmer { get; set; }
     public string Name { get; set; }
     public bool PersonenImZimmer { get; set; }
     public double TemperaturVorgabe { get; set; }
 
-    public void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
-    {
+    public abstract void VerarbeiteWetterdaten(Wetterdaten wetterdaten);
 
-    }
 
 }

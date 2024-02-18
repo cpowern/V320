@@ -12,9 +12,14 @@ namespace SmartHome
 
         private Random zufaellig { get; set; }
 
-        private const int MAX_TEMP;
+        private const int MAX_TEMP = 28;
 
-        private const int MIN_TEMP;
+        private const int MIN_TEMP = 18;
+
+        public Wetterdaten GetWetterdaten()
+        {
+            return null;
+        }
 
     }
 

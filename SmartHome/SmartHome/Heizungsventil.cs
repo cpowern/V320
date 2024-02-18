@@ -12,6 +12,6 @@ public class Heizungsventil : ZimmerDecorator
 
     public override void VerarbeiteWetterdaten(Wetterdaten wetterdaten)
     {
-
+        
     }
 }

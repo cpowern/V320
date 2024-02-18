@@ -10,7 +10,7 @@ namespace SmartHome
     {
         public DateTime WeckZeit { get; set; }
 
-        public Schlafzimmer() : base("schlafzimmer")
+        public Schlafzimmer() : base("Schlafzimmer")
         {
 
         }

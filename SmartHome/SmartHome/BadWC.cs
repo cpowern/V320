@@ -10,7 +10,7 @@ public class BadWC: Zimmer
 {
     public double Feuchtigkeit { get; set; }
 
-    public BadWC() : base("badWC")
+    public BadWC() : base("BadWC")
     {
 
     }

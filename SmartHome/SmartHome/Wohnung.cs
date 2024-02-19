@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace SmartHome
@@ -39,7 +40,12 @@ namespace SmartHome
 
             Console.WriteLine();
             Console.WriteLine("-----Verarbeite Wetterdaten-----");
+            Console.WriteLine($"Aussentemperatur: {WohnungWetterdaten.Aussentemperatur}");
+            Console.WriteLine($"Regen: {WohnungWetterdaten.Regen}");
+            Console.WriteLine($"Windgeschwindigkeit: {WohnungWetterdaten.Windgeschwindigkeit}");
+
             Console.WriteLine();
+
 
             foreach (var zimmer in zimmerList)
             {

@@ -32,17 +32,17 @@ namespace SmartHome
 
             if (wetterdaten.Aussentemperatur > this.Zimmer.TemperaturVorgabe)
             {
-                if (!this.JalousienOffen)
+                if (this.JalousienOffen == false)
                 {
-                    Console.WriteLine($"{this.Name}: Jalousie wird geschlossen.\n");
+                    Console.WriteLine($"{this.Name}: Jalousie wird geöffnet.\n");
                     JalousienOffen = true;
                 }
             }
             else
             {
-                if (this.JalousienOffen)
+                if (this.JalousienOffen == true)
                 {
-                    Console.WriteLine($"{this.Name}: Jalousie wird geöffnet.\n");
+                    Console.WriteLine($"{this.Name}: Jalousie wird geschlossen.\n");
                     JalousienOffen = false;
                 }
             }

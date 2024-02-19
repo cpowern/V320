@@ -7,7 +7,7 @@ public class Program
         Wettersensor wettersensor = new Wettersensor();
         Wohnung wohnung = new Wohnung(wettersensor);
 
-        wohnung.SetTemperaturvorgabe("BadWC", 25);
+        wohnung.SetTemperaturvorgabe("BadWC", 21);
         wohnung.SetPersonenImZimmer("BadWC", true);
         wohnung.SetTemperaturvorgabe("Kueche", 24);
         wohnung.SetPersonenImZimmer("Kueche", true);
@@ -16,10 +16,10 @@ public class Program
         wohnung.SetTemperaturvorgabe("Wohnzimmer", 22);
         wohnung.SetPersonenImZimmer("Wohnzimmer", false);
 
-
         for (int i = 0; i < 60; i++)
         {
             wohnung.GeneriereWetterdaten();
+            Thread.Sleep(1000); 
         }
 
     }

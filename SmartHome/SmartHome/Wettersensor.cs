@@ -11,7 +11,7 @@ namespace SmartHome
     /// </summary>
     public class Wettersensor
     {
-        private double AktuelleTemperatur { get; set; }
+        private double AktuelleTemperatur { get; set; } = 20;
 
         private double AktuelleWindgeschwindigkeit { get; set; }
 
@@ -25,7 +25,11 @@ namespace SmartHome
 
         public Wettersensor()
         {
+#if TEST
+            Zufaellig = new Random(10);
+#else
             Zufaellig = new Random();
+#endif
         }
 
         /// <summary>
@@ -51,7 +55,7 @@ namespace SmartHome
         /// </summary>
         private void GetTemperatur()
         {
-            double zielTemperatur = Zufaellig.NextDouble() * 25;
+            double zielTemperatur = Zufaellig.NextDouble() * 35;
             double temperaturAenderung = (zielTemperatur - AktuelleTemperatur) * 0.05;
             AktuelleTemperatur += temperaturAenderung;
 

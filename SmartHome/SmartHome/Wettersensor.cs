@@ -9,7 +9,7 @@ namespace SmartHome
     /// <summary>
     /// Stellt einen Wettersensor dar, der aktuelle Wetterdaten wie Temperatur, Windgeschwindigkeit und Regen erfasst.
     /// </summary>
-    public class Wettersensor
+    public class Wettersensor : IWettersensor
     {
         private double AktuelleTemperatur { get; set; } = 20;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace SmartHome
         /// Initialisiert eine neue Instanz der Wohnung-Klasse mit dem angegebenen Wettersensor.
         /// </summary>
         /// <param name="wettersensor">Der Wettersensor, der für die Wetterdatenerfassung verwendet wird.</param>
-        public Wohnung(Wettersensor wettersensor)
+        public Wohnung(IWettersensor wettersensor)
         {
             this.wettersensor = new Wettersensor();
 
@@ -80,5 +81,25 @@ namespace SmartHome
                 zimmer.TemperaturVorgabe = temperaturvorgabe;
             }
         }
+
+        public IZimmer GetZimmer(string zimmername)
+        {
+            return this.zimmerList.FirstOrDefault(x => x.Name == zimmername);
+        }
+
+        public T GetZimmer<T>(string zimmername)
+        {
+            var zimmer = this.GetZimmer(zimmername);
+            var fi = typeof(ZimmerDecorator).GetField("zimmer", BindingFlags.NonPublic | BindingFlags.Instance);
+            while (true)
+            { 
+                if (zimmer is T) 
+                { 
+                    return (T)zimmer; 
+                } 
+                zimmer = (IZimmer)fi.GetValue(zimmer); 
+            }
+        }
+        
     }
 }

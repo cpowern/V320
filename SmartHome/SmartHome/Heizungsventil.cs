@@ -11,7 +11,7 @@ namespace SmartHome
     /// </summary>
     public class Heizungsventil : ZimmerDecorator
     {
-        private bool IsHeizungsventilOffen { get; set; }
+        public bool IsHeizungsventilOffen { get; set; }
         private IZimmer Zimmer;
 
         /// <summary>
